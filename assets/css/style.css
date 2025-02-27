@@ -35,12 +35,12 @@
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    hsl(95, 47%, 44%) 0%, 
+    hsla(0, 0%, 0%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
     135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
+    rgba(180, 191, 191, 0.404) 0%, 
     hsla(35, 100%, 68%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
@@ -50,8 +50,8 @@
   );
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    hsl(0, 0%, 80%) 0%,  
+    hsl(129, 99%, 50%) 0%
   );
 
   /* solid */
@@ -63,11 +63,11 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: hsl(129, 99%, 50%);
+  --vegas-gold: hsl(129, 99%, 50%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --bittersweet-shimmer: hsl(107, 52%, 55%);
 
   /**
    * typography
@@ -1001,8 +1001,8 @@ main {
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
 .project-img img {
-  width: 100%;
-  height: 100%;
+  width: 260px;
+  height: 150px;
   object-fit: cover;
   transition: var(--transition-1);
 }
@@ -1025,6 +1025,59 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
+/* Popup modal styling */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+}
+
+.popup-content {
+  background-color: #262527;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #5CFF00;
+  width: 60%; /* Adjust width as necessary */
+  border-radius: 10px;
+  color: white;
+}
+
+/* Ensure the image inside the popup has a proper size */
+.popup-content img {
+  width: 100%; /* Make the image responsive inside the popup */
+  max-width: 500px; /* Optional: restrict the max size of the image */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image fits within the container */
+  border-radius: 10px; /* Optional: adds rounded corners */
+}
+
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: rgb(81, 81, 81);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-description {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* Ensures all images in the portfolio are the same size */
+
 
 
 
@@ -1378,6 +1431,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   .navbar-list { gap: 20px; }
 
   .navbar-link { --fs-8: 14px; }
+  /* Adding padding between sections */
+
+.skill {
+  margin-bottom: 20px;  /* Adjust the value as needed */
+}
+
+.timeline {
+  padding-top: 10px; /* Add top padding to the timeline section */
+}
+
 
 
 

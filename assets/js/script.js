@@ -134,6 +134,52 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+// Get all the project link elements
+var projectLinks = document.querySelectorAll(".project-link");
+
+// Add click event to each project link to open the corresponding popup
+projectLinks.forEach(function(link) {
+  link.addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Get the unique ID for the popup from the data attribute
+    var popupId = link.getAttribute("data-popup-id");
+    var modal = document.getElementById("project-popup-" + popupId); // Get the corresponding modal
+
+    modal.style.display = "block"; // Show the popup
+
+    // Get the project title, description, and image
+    var projectTitle = link.querySelector(".project-title").textContent;
+    var projectCategory = link.querySelector(".project-category").textContent;
+    var projectDescription = link.querySelector(".project-description").textContent;
+    var projectImage = link.querySelector("img").src;
+
+    // Set the title and category in the modal
+    modal.querySelector("h2").textContent = projectTitle;
+    modal.querySelector(".project-details").textContent = projectDescription; // Set description
+    modal.querySelector(".project-image").src = projectImage; // Set image
+  });
+});
+
+// Close the modal when the user clicks the close button
+var closeBtns = document.querySelectorAll(".close-btn");
+closeBtns.forEach(function(closeBtn) {
+  closeBtn.addEventListener("click", function() {
+    var modal = closeBtn.closest(".popup");
+    modal.style.display = "none"; // Close the modal
+  });
+});
+
+// Close the modal if the user clicks anywhere outside the modal content
+window.addEventListener("click", function(event) {
+  var modals = document.querySelectorAll(".popup");
+  modals.forEach(function(modal) {
+    if (event.target === modal) {
+      modal.style.display = "none"; // Close the modal if clicked outside
+    }
+  });
+});
+
 
 
 // page navigation variables
