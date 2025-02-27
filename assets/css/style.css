@@ -1707,28 +1707,96 @@ textarea.form-input::-webkit-resizer { display: none; }
    * PORTFOLIO
    */
 
-  .article-title { padding-bottom: 20px; }
-
-  .filter-select-box { display: none; }
-
-  .filter-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 25px;
-    padding-left: 5px;
-    margin-bottom: 30px;
-  }
-
+  /* Default styles for the filter items (buttons) */
   .filter-item button {
-    color: var(--light-gray);
-    font-size: var(--fs-5);
-    transition: var(--transition-1);
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
 
-  .filter-item button:hover { color: var(--light-gray-70); }
+  /* Highlight active category */
+  .filter-item button.active {
+    color: var(--orange-yellow-crayola);
+    background-color: rgba(255, 204, 51, 0.1); /* Example for highlighting active filter */
+    border-color: var(--orange-yellow-crayola); /* Highlight border color */
+  }
 
-  .filter-item button.active { color: var(--orange-yellow-crayola); }
+  /* Styles for the dropdown menu */
+  [data-select] {
+    position: relative;
+    display: inline-block;
+  }
+
+  [data-select] ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  [data-select] ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  [data-select] ul li:hover {
+    background-color: rgba(255, 204, 51, 0.1); /* Highlight on hover */
+  }
+
+  [data-select] ul li.active {
+    background-color: var(--orange-yellow-crayola); /* Active category highlight */
+  }
+
+  /* Show the dropdown when it's toggled */
+  [data-select] ul.show {
+    display: block;
+  }
+
+  /* Project items - default display style */
+  .project-item {
+    display: block; /* Show all by default */
+  }
+
+  /* If a project matches the selected category, show it, else hide it */
+  .project-item[data-category="full stack"],
+  .project-item[data-category="networks"],
+  .project-item[data-category="machine coding"],
+  .project-item[data-category="software engineering"],
+  .project-item[data-category="image processing"] {
+    display: block; /* This is redundant if display is set to block by default */
+  }
+
+  /* Hide items that don't match the selected category */
+  .project-item[data-category]:not(.active) {
+    display: none;
+  }
+
+  /* Media Query for mobile responsiveness (optional if needed) */
+  @media (max-width: 768px) {
+    [data-select] ul {
+      width: 100%; /* Ensure the dropdown takes full width on mobile */
+    }
+  }
+
+
+
+
+
+
 
   /* portfolio and blog grid */
 
