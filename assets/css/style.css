@@ -967,6 +967,7 @@ main {
   height: 100%;
   object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
   border-radius: 16px; /* Apply the border-radius directly to the image */
+  display: block; /* Ensure there's no unwanted space below the image */
 }
 
 /* Mobile adjustments */
@@ -980,6 +981,18 @@ main {
     height: 100%; /* Ensure the image fills the container */
   }
 }
+
+@media (max-width: 480px) {
+  .project-img {
+    height: 120px; /* Further reduce height for very small screens */
+    margin-bottom: 8px;
+  }
+
+  .project-img img {
+    height: 100%; /* Ensure the image fills the container */
+  }
+}
+
 
 @media (max-width: 480px) {
   .project-img {
